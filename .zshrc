@@ -167,8 +167,6 @@ update-all() {
   echo "✅ All updates completed!"
   echo "=========================================="
 	
-  check-update
-
 }
 
 alias ls=lsd
