@@ -4,43 +4,31 @@
     "type": "small",
   },
   "display": {
-    "constants": ["██ "],
+    "separator": "  ",
+    "color": {
+      "keys": "magenta",
+    },
+    "size": {
+      "ndigits": 0,
+      "maxPrefix": "MB",
+    },
+    "key": {
+      "type": "icon",
+    },
   },
   "modules": [
     {
-      "key": "{$1}Distro",
-      "keyColor": "38;5;210",
-      "type": "os",
+      "type": "title",
+      "color": {
+        "user": "green",
+        "at": "red",
+        "host": "blue",
+      },
     },
-    {
-      "key": "{$1}Kernel",
-      "keyColor": "38;5;84",
-      "type": "kernel",
-    },
-    {
-      "key": "{$1}Shell",
-      "keyColor": "38;5;147",
-      "type": "shell",
-    },
-    {
-      "key": "{$1}Packages",
-      "keyColor": "38;5;200",
-      "type": "packages",
-    },
-    {
-      "key": "{$1}WM",
-      "keyColor": "38;5;44",
-      "type": "wm",
-    },
-    {
-      "key": "{$1}CPU",
-      "keyColor": "38;5;75",
-      "type": "cpu",
-    },
-    {
-      "key": "{$1}Memory",
-      "keyColor": "38;5;123",
-      "type": "memory",
-    },
+    "os",
+    "kernel",
+    "memory",
+    "packages",
+    "uptime",
   ],
 }
