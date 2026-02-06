@@ -15,4 +15,11 @@ return {
       return opts
     end,
   },
+
+  {
+    "iamkarasik/sonarqube.nvim",
+    config = function()
+      require("sonarqube").setup({})
+    end,
+  },
 }
