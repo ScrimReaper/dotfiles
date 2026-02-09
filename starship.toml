@@ -54,3 +54,9 @@ format = "[$virtualenv]($style) "
 style = "bright-black"
 detect_extensions = []
 detect_files = []
+
+
+[nix_shell]
+symbol = " "
+format = "[$symbol$state( ($name))]($style) "
+style = "bright-blue"
