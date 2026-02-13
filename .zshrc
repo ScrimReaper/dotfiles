@@ -59,26 +59,6 @@ source $ZSH/oh-my-zsh.sh
 
 echo "hi moooooooh" | cowsay | lolcat
 
-# Pure theme
-fpath+=($HOME/.zsh/pure)
-
-# Prompts
-autoload -U promptinit; promptinit
-
-# Check for git updates
-PURE_GIT_PULL=0
-
-# change the path color
-# zstyle :prompt:pure:path color white
-
-# turn on git stash status
-zstyle :prompt:pure:git:stash show yes
-
-# turn on host and user
-zstyle ':prompt:pure:context' show always
-
-
-prompt pure
 
 # User configuration
 
@@ -120,7 +100,10 @@ export ANDROID_HOME=/opt/android-sdk
 ## export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 export CHROME_EXECUTABLE=/opt/google/chrome/chrome
 
-
+# pyenv setup
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
 
 
 
@@ -177,3 +160,6 @@ alias gamesave="cd .local/share/dolphin-emu/"
 
 export PATH="$PATH:$HOME/.cargo/bin:$HOME/.flutter/flutter/bin:$ANDROID_HOME/platform-tools"
 alias refreshKubeConf="exo compute sks kubeconfig Test admin > ~/.kube/config"
+
+
+eval "$(starship init zsh)"
