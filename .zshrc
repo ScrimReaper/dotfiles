@@ -91,14 +91,10 @@ echo "hi moooooooh" | cowsay | lolcat
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
-[[ -f /home/mo/.dart-cli-completion/zsh-config.zsh ]] && . /home/mo/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
 export NVM_DIR="$HOME/.nvm"; source /usr/share/nvm/init-nvm.sh
 export auraip=194.182.175.77
-export ANDROID_HOME=/opt/android-sdk
-## export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
-export CHROME_EXECUTABLE=/opt/google/chrome/chrome
 
 # pyenv setup
 export PYENV_ROOT="$HOME/.pyenv"
@@ -139,11 +135,6 @@ update-all() {
     done
   fi
   
-  echo
-  echo "=========================================="
-  echo "🪄 Updating Flutter SDK..."
-  echo "=========================================="
-  flutter upgrade
 
   echo
   echo "=========================================="
@@ -158,7 +149,7 @@ alias dbuild="docker buildx build"
 
 alias gamesave="cd .local/share/dolphin-emu/"
 
-export PATH="$PATH:$HOME/.cargo/bin:$HOME/.flutter/flutter/bin:$ANDROID_HOME/platform-tools"
+export PATH="$PATH:$HOME/.cargo/bin:$HOME/.local/bin"
 alias refreshKubeConf="exo compute sks kubeconfig Test admin > ~/.kube/config"
 
 
