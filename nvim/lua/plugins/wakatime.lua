@@ -12,6 +12,8 @@ return {
       opts.formatters_by_ft["markdown.mdx"] = { "prettier" }
       opts.formatters_by_ft.mdx = { "prettier" }
 
+      opts.formatters_by_ft.ruby = { "rubyfmt" }
+
       return opts
     end,
   },
