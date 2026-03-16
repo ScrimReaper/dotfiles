@@ -1,4 +1,3 @@
-
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -8,11 +7,10 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME=""
 
-
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle ':omz:update' mode reminder # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
 # zstyle ':omz:update' frequency 13
@@ -59,7 +57,6 @@ source $ZSH/oh-my-zsh.sh
 
 echo "hi moooooooh" | cowsay | lolcat
 
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -68,11 +65,11 @@ echo "hi moooooooh" | cowsay | lolcat
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
- else
-   export EDITOR='nvim'
- fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
@@ -93,20 +90,14 @@ echo "hi moooooooh" | cowsay | lolcat
 ## Completion scripts setup. Remove the following line to uninstall
 ## [/Completion]
 
-export NVM_DIR="$HOME/.nvm"; source /usr/share/nvm/init-nvm.sh
+export NVM_DIR="$HOME/.nvm"
+source /usr/share/nvm/init-nvm.sh
 export auraip=194.182.175.77
 
 # pyenv setup
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
-
-
-
-
-
-
-
 
 update-all() {
   echo "=========================================="
@@ -125,7 +116,7 @@ update-all() {
   echo "🦀 Updating Cargo packages..."
   echo "=========================================="
 
-  if command -v cargo-install-update &> /dev/null; then
+  if command -v cargo-install-update &>/dev/null; then
     cargo install-update -a
   else
     echo "cargo-update not found, using fallback..."
@@ -134,13 +125,25 @@ update-all() {
       cargo install "$crate" --force
     done
   fi
-  
 
   echo
   echo "=========================================="
   echo "✅ All updates completed!"
   echo "=========================================="
-	
+
+}
+
+toPdf() {
+  src="${1:?Source not set}"
+  dst="${2:?Destination not set}"
+
+  [[ "$src" != *.md ]] && {
+    echo "Error: source must be a .md file" >&2
+    return 1
+  }
+
+  pandoc "$src" -o "$dst" --pdf-engine=xelatex -V geometry:margin=2.5cm
+
 }
 
 alias ls=lsd
@@ -151,6 +154,5 @@ alias gamesave="cd .local/share/dolphin-emu/"
 
 export PATH="$PATH:$HOME/.cargo/bin:$HOME/.local/bin"
 alias refreshKubeConf="exo compute sks kubeconfig Test admin > ~/.kube/config"
-
 
 eval "$(starship init zsh)"
