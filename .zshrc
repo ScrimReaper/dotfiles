@@ -155,4 +155,10 @@ alias gamesave="cd .local/share/dolphin-emu/"
 export PATH="$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/go/bin"
 alias refreshKubeConf="exo compute sks kubeconfig Test admin > ~/.kube/config"
 
+if command -v bat >&/dev/null; then
+  alias cat="bat"
+else
+  echo "bat not installed"
+fi
+
 eval "$(starship init zsh)"
