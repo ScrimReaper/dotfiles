@@ -152,6 +152,7 @@ alias dbuild="docker buildx build"
 
 alias gamesave="cd .local/share/dolphin-emu/"
 
+export ANSIBLE_NOCOWS=1
 export PATH="$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/go/bin"
 alias refreshKubeConf="exo compute sks kubeconfig Test admin > ~/.kube/config"
 
@@ -162,3 +163,4 @@ else
 fi
 
 eval "$(starship init zsh)"
+
